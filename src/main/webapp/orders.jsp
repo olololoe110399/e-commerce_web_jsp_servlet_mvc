@@ -13,10 +13,7 @@
     <%@include file="includes/header.jsp" %>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<%@include file="/includes/navbar.jsp" %>
 <%@include file="includes/footer.jsp" %>
 </body>
 </html>
