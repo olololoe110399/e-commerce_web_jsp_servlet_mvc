@@ -1,13 +1,19 @@
-<%--
+<%@ page import="vtnd.duynn.ecommerce_web_jsp_servlet_mvc.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: nguyenngocduy
   Date: 20.06.22
   Time: 01:19
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if (auth != null) {
+        request.setAttribute("person", auth);
+    }
+%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="index.jsp">E-Commerce Cart</a>
+        <a class="navbar-brand" href="home">E-Commerce Cart</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -17,12 +23,37 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart <span
-                        class="badge badge-danger">${cart_list.size()}</span> </a></li>
-                <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
-                <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
-                <li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
+                <li class="nav-item"><a class="nav-link ${active == "home" ? 'font-weight-bold' : ''}"
+                                        href="home">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link ${active == "cart" ? 'font-weight-bold' : ''}" href="cart">Cart
+                    <span
+                            class="badge badge-danger">${cart_list.size()}</span> </a></li>
+                <%
+                    if (auth != null) {
+                %>
+                <li class="nav-item"><a class="nav-link ${active == "orders" ? 'font-weight-bold' : ''}"
+                                        href="orders">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+                <%
+                    if (auth.getType().equals("admin")) {
+                %>
+                <li class="nav-item"><a class="nav-link ${active == "admin" ? 'font-weight-bold' : ''}" href="admin">Admin</a>
+                </li>
+                <%
+                    }
+                %>
+                <%
+                } else {
+                %>
+                <li class="nav-item"><a class="nav-link ${active == "register" ? 'font-weight-bold' : ''}"
+                                        href="register">Register</a>
+                </li>
+                <li class="nav-item"><a class="nav-link ${active == "login" ? 'font-weight-bold' : ''}"
+                                        href="login">Login</a></li>
+                <%
+                    }
+                %>
             </ul>
         </div>
     </div>
