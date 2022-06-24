@@ -16,7 +16,7 @@
 <%@include file="/includes/navbar.jsp" %>
 <div class="container">
     <div class="card w-50 mx-auto my-5">
-        <div class="card-header text-center">User Login</div>
+        <h3 class="card-header text-center">Sign In</h3>
         <div class="card-body">
             <%@include file="includes/message.jsp" %>
             <form action="login" method="post">
