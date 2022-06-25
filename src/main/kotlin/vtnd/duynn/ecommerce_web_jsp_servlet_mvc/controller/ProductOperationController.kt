@@ -69,12 +69,14 @@ class ProductOperationController : HttpServlet() {
                     val path =
                         context.getRealPath("assets") + File.separator + "uploads" + File.separator + part.submittedFileName
                     val fos = FileOutputStream(path)
+                    print(context.getRealPath("assets"))
                     val `is` = part.inputStream
                     val data = ByteArray(`is`.available())
                     `is`.read(data)
                     fos.write(data)
                     fos.close()
                 } catch (e: Exception) {
+                    println("lỗi :${e.message}")
                     Logger.getLogger(this::class.simpleName).log(Level.SEVERE, null, e)
                     throw e
                 }

@@ -119,6 +119,7 @@
 <%@include file="includes/category_modal.jsp" %>
 <!-- Product Modal -->
 <%@include file="includes/product_modal.jsp" %>
+<%@include file="includes/modals.jsp" %>
 <%--js--%>
 <%@include file="includes/footer.jsp" %>
 </body>
