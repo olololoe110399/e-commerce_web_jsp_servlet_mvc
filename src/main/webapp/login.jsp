@@ -35,6 +35,7 @@
         </div>
     </div>
 </div>
+<%@include file="includes/modals.jsp" %>
 <%@include file="includes/footer.jsp" %>
 </body>
 </html>

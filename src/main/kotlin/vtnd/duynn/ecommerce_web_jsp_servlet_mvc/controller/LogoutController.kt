@@ -26,6 +26,7 @@ class LogoutController : HttpServlet() {
             }
         } catch (ex: Exception) {
             Logger.getLogger(this::class.simpleName).log(Level.SEVERE, null, ex)
+            request.session?.setAttribute("error", "${ex.printStackTrace()}")
             response.sendRedirect("error.jsp")
         }
     }

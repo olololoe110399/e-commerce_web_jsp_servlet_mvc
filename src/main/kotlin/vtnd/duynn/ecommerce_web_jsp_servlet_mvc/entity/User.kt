@@ -7,6 +7,6 @@ data class User(
     val password: String = "",
     val phone: String = "",
     val address: String = "",
-    val avatar: String =  "default.jpg",
+    val avatar: String =  "avatar_default.jpg",
     val type: String = "normal",
 )

@@ -26,9 +26,9 @@
                 <li class="nav-item"><a class="nav-link ${active == "home" ? 'font-weight-bold' : ''}"
                                         href="home">Home</a>
                 </li>
-                <li class="nav-item"><a class="nav-link ${active == "cart" ? 'font-weight-bold' : ''}" href="cart">Cart
-                    <span
-                            class="badge badge-danger">${cart_list.size()}</span> </a></li>
+                <li class="nav-item">
+                    <a class="nav-link ${active == "cart" ? 'font-weight-bold' : ''}" href="#"  data-toggle="modal" data-target="#cart">Cart
+                    <span class="badge badge-danger cart-items">0</span> </a></li>
                 <%
                     if (auth != null) {
                 %>
